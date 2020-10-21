@@ -1,24 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [oldAccount, setOldAccount] = useState("joem@microsoft.com");
+  const [newAccount, setNewAccount] = useState("joem2@microsoft.com");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <strong>old:</strong>
+        <input
+          style={{ marginLeft: "12px", marginBottom: "12px" }}
+          value={oldAccount}
+          onChange={(e) => setOldAccount(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <strong>new:</strong>
+        <input
+          style={{ marginLeft: "12px", marginBottom: "12px" }}
+          value={newAccount}
+          onChange={(e) => setNewAccount(e.target.value)}
+        />
+      </div>
+      <button
+        onClick={() => {
+          fetch(
+            `https://shortfuts-server.herokuapp.com/update-premium-user/${oldAccount}/${newAccount}`,
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              referrer: "no-referrer",
+            }
+          )
+            .then((response) => response.json())
+            .then((jsonResponse) => {
+              alert(jsonResponse.result);
+            });
+        }}
+      >
+        update
+      </button>
     </div>
   );
 }
