@@ -40,19 +40,6 @@ function App() {
             .then((response) => response.json())
             .then((jsonResponse) => {
               alert(jsonResponse.result);
-
-              fetch(
-                "https://discord.com/api/webhooks/768263936528875521/FVUDFyKpthiYScBj0POtRTsFtccK0TePoeg2F667jO3pFOOtgS5oh-M4hdAjwPOx2Vd0",
-                {
-                  method: "POST",
-                  body: JSON.stringify({
-                    content: `<@!514933935256371231> A shortfuts premium user's record was updated (${newAccount}).`,
-                  }),
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                }
-              );
             });
         }}
       >
