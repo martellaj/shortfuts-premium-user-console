@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [oldAccount, setOldAccount] = useState("joem@microsoft.com");
-  const [newAccount, setNewAccount] = useState("joem2@microsoft.com");
+  const [oldAccount, setOldAccount] = useState("");
+  const [newAccount, setNewAccount] = useState("");
 
   return (
     <div className="App">
@@ -40,6 +40,19 @@ function App() {
             .then((response) => response.json())
             .then((jsonResponse) => {
               alert(jsonResponse.result);
+
+              fetch(
+                "https://discord.com/api/webhooks/768263936528875521/FVUDFyKpthiYScBj0POtRTsFtccK0TePoeg2F667jO3pFOOtgS5oh-M4hdAjwPOx2Vd0",
+                {
+                  method: "POST",
+                  body: JSON.stringify({
+                    content: `<@!514933935256371231> A shortfuts premium user's record was updated (${newAccount}).`,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
             });
         }}
       >
