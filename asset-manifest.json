@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/shortfuts-premium-user-console/static/css/main.dbc58f77.chunk.css",
-    "main.js": "/shortfuts-premium-user-console/static/js/main.3a1f85ff.chunk.js",
-    "main.js.map": "/shortfuts-premium-user-console/static/js/main.3a1f85ff.chunk.js.map",
+    "main.js": "/shortfuts-premium-user-console/static/js/main.56310bbd.chunk.js",
+    "main.js.map": "/shortfuts-premium-user-console/static/js/main.56310bbd.chunk.js.map",
     "runtime-main.js": "/shortfuts-premium-user-console/static/js/runtime-main.bab0789b.js",
     "runtime-main.js.map": "/shortfuts-premium-user-console/static/js/runtime-main.bab0789b.js.map",
     "static/js/2.44d11590.chunk.js": "/shortfuts-premium-user-console/static/js/2.44d11590.chunk.js",
     "static/js/2.44d11590.chunk.js.map": "/shortfuts-premium-user-console/static/js/2.44d11590.chunk.js.map",
     "index.html": "/shortfuts-premium-user-console/index.html",
-    "precache-manifest.4a0dbcb0271a2243826d66e32a6d815a.js": "/shortfuts-premium-user-console/precache-manifest.4a0dbcb0271a2243826d66e32a6d815a.js",
+    "precache-manifest.1c3aa08e29f57c22590eb2faebf613f8.js": "/shortfuts-premium-user-console/precache-manifest.1c3aa08e29f57c22590eb2faebf613f8.js",
     "service-worker.js": "/shortfuts-premium-user-console/service-worker.js",
     "static/css/main.dbc58f77.chunk.css.map": "/shortfuts-premium-user-console/static/css/main.dbc58f77.chunk.css.map",
     "static/js/2.44d11590.chunk.js.LICENSE.txt": "/shortfuts-premium-user-console/static/js/2.44d11590.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.bab0789b.js",
     "static/js/2.44d11590.chunk.js",
     "static/css/main.dbc58f77.chunk.css",
-    "static/js/main.3a1f85ff.chunk.js"
+    "static/js/main.56310bbd.chunk.js"
   ]
 }
