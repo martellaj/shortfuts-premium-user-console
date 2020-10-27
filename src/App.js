@@ -15,6 +15,11 @@ function App() {
           This will only work for first-time buyers.
         </span>
       </span>
+      <span style={{ width: "500px", marginBottom: "12px" }}>
+        After you click "update" below, please wait <strong>15 minutes</strong>{" "}
+        and then try checking shortfuts again. If you entered the correct email,
+        you should be good to go!
+      </span>
       <div className="box">
         <strong>contact email you used:</strong>
         <input
