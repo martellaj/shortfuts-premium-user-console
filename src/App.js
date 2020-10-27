@@ -7,6 +7,14 @@ function App() {
 
   return (
     <div className="App">
+      <span style={{ width: "500px", marginTop: "12px", marginBottom: "12px" }}>
+        This page is to rectify your shortfuts premium purchase. You didn't
+        follow instructions and didn't use the email address that's listed in
+        your shortfuts app.{" "}
+        <span style={{ backgroundColor: "lightblue" }}>
+          This will only work for first-time buyers.
+        </span>
+      </span>
       <div className="box">
         <strong>contact email you used:</strong>
         <input
@@ -50,7 +58,7 @@ function App() {
             });
         }}
       >
-        update
+        <strong>update</strong>
       </button>
     </div>
   );
