@@ -5,6 +5,12 @@ function App() {
   const [oldAccount, setOldAccount] = useState("");
   const [newAccount, setNewAccount] = useState("");
 
+  const [orderNumber, setOrderNumber] = useState("");
+  const [redeemed, setRedeemed] = useState(false);
+  const [redeemedBy, setRedeemedBy] = useState("N/A");
+  const [monthsPurchased, setMonthsPurchased] = useState("");
+  const [orderError, setOrderError] = useState("");
+
   return (
     <div className="App">
       <span style={{ width: "500px", marginTop: "12px", marginBottom: "12px" }}>
@@ -46,7 +52,7 @@ function App() {
         style={{ marginTop: "6px" }}
         onClick={() => {
           fetch(
-            `https://shortfuts-server.herokuapp.com/update-premium-user/${oldAccount}/${newAccount}`,
+            `https://shortfuts-server.herokuapp.com/update-premium-user-override/${oldAccount}/${newAccount}`,
             // `http://localhost:3000/update-premium-user/${oldAccount}/${newAccount}`,
             {
               method: "POST",
@@ -65,6 +71,64 @@ function App() {
       >
         <strong>update</strong>
       </button>
+
+      <div className="box" style={{ marginTop: "48px" }}>
+        <strong>order:</strong>
+        <input
+          value={orderNumber}
+          onChange={(e) => setOrderNumber(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            fetch(
+              `https://shortfuts-server.herokuapp.com/order/${orderNumber}`,
+              // `http://localhost:3000/order/${orderNumber}`,
+              {
+                method: "GET",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                },
+                referrer: "no-referrer",
+              }
+            )
+              .then((response) => response.json())
+              .then((jsonResponse) => {
+                const {
+                  redeemed,
+                  redeemedBy,
+                  error,
+                  monthsPurchased,
+                } = jsonResponse;
+
+                if (error) {
+                  setOrderError(error);
+                  return;
+                }
+
+                setRedeemed(redeemed);
+                setRedeemedBy(redeemedBy);
+                setMonthsPurchased(monthsPurchased);
+              });
+          }}
+        >
+          fetch order info
+        </button>
+        {!orderError && (
+          <div>
+            <div>
+              <strong>redeemed: </strong> {redeemed ? "Yes" : "No"}
+            </div>
+            <div>
+              <strong>redeemed by: </strong> {redeemedBy}
+            </div>
+            <div>
+              <strong>months: </strong> {monthsPurchased}
+            </div>
+          </div>
+        )}
+        {orderError}
+      </div>
     </div>
   );
 }
